@@ -1,0 +1,450 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CureLink - Premium Healthcare Platform</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">
+            <span class="logo-icon"><i class="fa-solid fa-notes-medical"></i></span>
+            <span>CureLink</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#doctors">Find Doctors</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#specialties">Specialties</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button id="theme-toggle" class="icon-btn" title="Toggle Dark/Light Mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <div class="nav-btns">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="sigup.html" class="signup-btn">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+
+    <div class="bg-blobs">
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+    </div>
+
+    <div class="floating-icons" id="floating-icons"></div>
+
+    <div class="pulse-line-wrap">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path class="pulse-path" d="M0,60 L280,60 L320,60 L345,15 L370,105 L395,35 L415,60 L460,60 L1200,60"/>
+        </svg>
+    </div>
+
+    <div class="hero-content">
+        <span class="live-badge">
+            <span class="live-dot"></span>
+            2,400+ doctors online right now
+        </span>
+
+        <h1>Your Health, Our Priority.<br><span>Book Top Doctors Instantly.</span></h1>
+        <p>Skip the waiting room. Consult verified specialists, book lab tests, and manage your healthcare from one premium platform.</p>
+    </div>
+
+    <div class="search-wrapper">
+        <div class="search-container">
+
+            <div class="search-input location">
+                <i class="fa-solid fa-location-dot"></i>
+                <select id="search-location">
+                    <option value="Jangipur">India (Jangipur)</option>
+                    <option value="Bolpur">India (Bolpur)</option>
+                    <option value="Bardhaman">India (Bardhaman)</option>
+                    <option value="Bahutali">India (Bahutali)</option>
+                </select>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="search-input query">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="dynamic-search" placeholder="Search doctors, clinics, specialties..." autocomplete="off">
+                <div class="search-suggestions" id="search-suggestions"></div>
+            </div>
+
+            <button class="search-trigger-btn" id="search-btn" onclick="executeSearchRedirect()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span class="btn-label">Search</span>
+                <span class="btn-spinner"></span>
+            </button>
+
+        </div>
+    </div>
+</section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <h2>5000+</h2>
+            <p>Verified Doctors</p>
+        </div>
+        <div class="stat-card">
+            <h2>50K+</h2>
+            <p>Happy Patients</p>
+        </div>
+        <div class="stat-card">
+            <h2>100+</h2>
+            <p>Partner Hospitals</p>
+        </div>
+        <div class="stat-card">
+            <h2>24/7</h2>
+            <p>Healthcare Support</p>
+        </div>
+    </section>
+<!-- <section class="services" id="services">
+  <div class="section-title">
+    <span class="eyebrow">What We Offer</span>
+    <h2>Our Premium Services</h2>
+    <p>Complete healthcare solutions in one single click</p>
+  </div>
+
+  <div class="service-grid">
+
+    <!-- Existing 6 
+    <div class="service-card" onclick="window.location.href='video-consultation.html'">
+      <div class="icon-box video"><i class="fa-solid fa-video"></i></div>
+      <h3>Video Consultation</h3>
+      <p>Consult top doctors online instantly.</p>
+      <span class="service-link">Consult Now <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="scrollToSearch()">
+      <div class="icon-box doctor"><i class="fa-solid fa-user-doctor"></i></div>
+      <h3>Find Doctors</h3>
+      <p>Book confirmed in-clinic appointments.</p>
+      <span class="service-link">Book Appointment <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="window.location.href='lab-tests.html'">
+      <div class="icon-box lab"><i class="fa-solid fa-flask"></i></div>
+      <h3>Lab Tests</h3>
+      <p>Safe home sample collection & reports.</p>
+      <span class="service-link">Book Test <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="window.location.href='hospitals.html'">
+      <div class="icon-box hospital"><i class="fa-solid fa-hospital"></i></div>
+      <h3>Hospitals</h3>
+      <p>Find & book trusted partner hospitals.</p>
+      <span class="service-link">Find Hospital <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="window.location.href='medicines.html'">
+      <div class="icon-box meds"><i class="fa-solid fa-pills"></i></div>
+      <h3>Medicine Delivery</h3>
+      <p>Order genuine medicines online easily.</p>
+      <span class="service-link">Order Now <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="window.location.href='health-checkup.html'">
+      <div class="icon-box pulse"><i class="fa-solid fa-heart-pulse"></i></div>
+      <h3>Health Checkup</h3>
+      <p>Preventive customized health packages.</p>
+      <span class="service-link">View Packages <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <!-- New 4 
+    <div class="service-card" onclick="window.location.href='ai-symptom.html'">
+      <span class="new-tag">New</span>
+      <div class="icon-box ai"><i class="fa-solid fa-robot"></i></div>
+      <h3>AI Symptom Checker</h3>
+      <p>Describe symptoms, AI guides you to the right doctor.</p>
+      <span class="service-link">Check Now <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="window.location.href='blood-donor.html'">
+      <span class="new-tag">New</span>
+      <div class="icon-box blood"><i class="fa-solid fa-droplet"></i></div>
+      <h3>Blood Donor Network</h3>
+      <p>Find nearby donors instantly in an emergency.</p>
+      <span class="service-link">Find Donor <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="window.location.href='family-health.html'">
+      <span class="new-tag">New</span>
+      <div class="icon-box family"><i class="fa-solid fa-users"></i></div>
+      <h3>Family Health Dashboard</h3>
+      <p>All family health records in one place.</p>
+      <span class="service-link">View Dashboard <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="window.location.href='insurance.html'">
+      <span class="new-tag">New</span>
+      <div class="icon-box insure"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>Insurance Claim Helper</h3>
+      <p>File claims easily, upload documents online.</p>
+      <span class="service-link">Claim Now <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+  </div>
+</section> -->
+<section class="services" id="services">
+  <div class="section-title">
+    <span class="eyebrow">What We Offer</span>
+    <h2>Our Premium Services</h2>
+    <p>Complete healthcare solutions in one single click</p>
+  </div>
+
+  <div class="service-grid">
+
+    <!-- Existing 6 -->
+    <div class="service-card" onclick="handleServiceClick('video')">
+      <div class="icon-box video"><i class="fa-solid fa-video"></i></div>
+      <h3>Video Consultation</h3>
+      <p>Consult top doctors online instantly.</p>
+      <span class="service-link">Consult Now <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="handleServiceClick('find-doctors')">
+      <div class="icon-box doctor"><i class="fa-solid fa-user-doctor"></i></div>
+      <h3>Find Doctors</h3>
+      <p>Book confirmed in-clinic appointments.</p>
+      <span class="service-link">Book Appointment <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="handleServiceClick('lab-tests')">
+      <div class="icon-box lab"><i class="fa-solid fa-flask"></i></div>
+      <h3>Lab Tests</h3>
+      <p>Safe home sample collection & reports.</p>
+      <span class="service-link">Book Test <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="handleServiceClick('hospitals')">
+      <div class="icon-box hospital"><i class="fa-solid fa-hospital"></i></div>
+      <h3>Hospitals</h3>
+      <p>Find & book trusted partner hospitals.</p>
+      <span class="service-link">Find Hospital <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="handleServiceClick('medicine')">
+      <div class="icon-box meds"><i class="fa-solid fa-pills"></i></div>
+      <h3>Medicine Delivery</h3>
+      <p>Order genuine medicines online easily.</p>
+      <span class="service-link">Order Now <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="handleServiceClick('health-checkup')">
+      <div class="icon-box pulse"><i class="fa-solid fa-heart-pulse"></i></div>
+      <h3>Health Checkup</h3>
+      <p>Preventive customized health packages.</p>
+      <span class="service-link">View Packages <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <!-- New 4 -->
+    <div class="service-card" onclick="handleServiceClick('ai-checker')">
+      <span class="new-tag">New</span>
+      <div class="icon-box ai"><i class="fa-solid fa-robot"></i></div>
+      <h3>AI Symptom Checker</h3>
+      <p>Describe symptoms, AI guides you to the right doctor.</p>
+      <span class="service-link">Check Now <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="handleServiceClick('blood-donor')">
+      <span class="new-tag">New</span>
+      <div class="icon-box blood"><i class="fa-solid fa-droplet"></i></div>
+      <h3>Blood Donor Network</h3>
+      <p>Find nearby donors instantly in an emergency.</p>
+      <span class="service-link">Find Donor <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="handleServiceClick('family')">
+      <span class="new-tag">New</span>
+      <div class="icon-box family"><i class="fa-solid fa-users"></i></div>
+      <h3>Family Health Dashboard</h3>
+      <p>All family health records in one place.</p>
+      <span class="service-link">View Dashboard <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <div class="service-card" onclick="handleServiceClick('insurance')">
+      <span class="new-tag">New</span>
+      <div class="icon-box insure"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>Insurance Claim Helper</h3>
+      <p>File claims easily, upload documents online.</p>
+      <span class="service-link">Claim Now <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+  </div>
+</section>
+
+    <section class="specialties" id="specialties">
+        <div class="section-title">
+            <h2>Consult Top Specialists</h2>
+            <p>Find experienced doctors across popular specialties</p>
+        </div>
+        <div class="specialty-grid">
+            <div class="specialty-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/3004/3004082.png" alt="Dentist">
+                <h4>Dentist</h4>
+            </div>
+            <div class="specialty-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/3209/3209081.png" alt="Gynecologist">
+                <h4>Gynecologist</h4>
+            </div>
+            <div class="specialty-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/2865/2865589.png" alt="Dietitian">
+                <h4>Dietitian</h4>
+            </div>
+            <div class="specialty-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/3004/3004018.png" alt="Dermatologist">
+                <h4>Dermatologist</h4>
+            </div>
+            <div class="specialty-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/3004/3004005.png" alt="Pediatrician">
+                <h4>Pediatrician</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="doctors" id="doctors">
+        <div class="section-title">
+            <h2>Top Verified Doctors</h2>
+            <p>Experienced specialists near your location</p>
+        </div>
+        
+        <div class="doctor-grid">
+            
+            <div class="doctor-card">
+                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=500" alt="Doctor 1">
+                <div class="doctor-info">
+                    <h3>Dr. Rahul Sharma</h3>
+                    <p>Cardiologist</p>
+                    <span>⭐ 4.9 | 15 Years Exp.</span>
+                </div>
+                <a href="doctor-details.html" style="text-decoration: none; display: block;">
+                    <button class="book-btn" style="width: calc(100% - 3rem); margin: 0 1.5rem 1.5rem 1.5rem;">Book Appointment</button> 
+                </a>
+            </div>
+
+            <div class="doctor-card">
+                <img src="https://images.unsplash.com/photo-1594824813573-246434de83fb?q=80&w=500" alt="Doctor 2">
+                <div class="doctor-info">
+                    <h3>Dr. Priya Sen</h3>
+                    <p>Dermatologist</p>
+                    <span>⭐ 4.8 | 10 Years Exp.</span>
+                </div>
+                <a href="doctor-details.html" style="text-decoration: none; display: block;">
+                    <button class="book-btn" style="width: calc(100% - 3rem); margin: 0 1.5rem 1.5rem 1.5rem;">Book Appointment</button>
+                </a>
+            </div>
+
+            <div class="doctor-card">
+                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=500" alt="Doctor 3">
+                <div class="doctor-info">
+                    <h3>Dr. Amit Roy</h3>
+                    <p>Neurologist</p>
+                    <span>⭐ 4.9 | 18 Years Exp.</span>
+                </div>
+                <a href="doctor-details.html" style="text-decoration: none; display: block;">
+                    <button class="book-btn" style="width: calc(100% - 3rem); margin: 0 1.5rem 1.5rem 1.5rem;">Book Appointment</button>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Need Medical Help Right Now?</h2>
+        <p>Connect with verified online specialists within minutes safely.</p>
+        <button class="cta-btn">Consult Now</button>
+    </section>
+
+    <section class="testimonials" id="reviews">
+        <div class="section-title">
+            <h2>What Our Patients Say</h2>
+            <p>Real reviews from happy users</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>Amazing service and very quick appointment booking experience.</p>
+                <h4>— Arif</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>Found a top neurologist specialist within minutes. Extremely helpful!</p>
+                <h4>— Neha</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>Great online video consultation experience. Saved my clinic line waiting time.</p>
+                <h4>— Rakesh</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="app-banner">
+        <div class="app-content">
+            <h2>Download the CureLink App</h2>
+            <p>Access medical records, track active appointments, and consult doctors on the go anywhere.</p>
+            <div class="app-buttons">
+                <button class="store-btn"><i class="fa-brands fa-google-play"></i> Google Play</button>
+                <button class="store-btn"><i class="fa-brands fa-apple"></i> App Store</button>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-notes-medical"></i> CureLink
+                </a>
+                <p>Your trusted, smart healthcare partner making premium services accessible.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>For Patients</h4>
+                <ul>
+                    <li><a href="#doctors" style="color: inherit; text-decoration: none;">Search Doctors</a></li>
+                    <li><a href="#services" style="color: inherit; text-decoration: none;">Find Hospitals</a></li>
+                    <li><a href="#specialties" style="color: inherit; text-decoration: none;">Book Lab Tests</a></li>
+                    <li><a href="#" style="color: inherit; text-decoration: none;">Read Health Blogs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Contact Support</h4>
+                <p><i class="fa-solid fa-envelope"></i> support@curelink.com</p>
+                <p style="margin-top: 5px;"><i class="fa-solid fa-phone"></i> +91 1234567890</p>
+                
+                <p style="margin-top: 12px;">
+                    <a href="contact.html" style="color: var(--accent); text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-headset"></i> Open Support Page
+                    </a>
+                </p>
+            </div>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 CureLink Healthcare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+ 
+    
+ 
+</body>
+</html>
