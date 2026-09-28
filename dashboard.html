@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - CureLink Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0077b6;
+            --bg-dash: #f4f7fa;
+            --card-dash: #ffffff;
+            --text-dark: #0b132b;
+            --muted: #5c677d;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg-dash); color: var(--text-dark); display: flex; min-height: 100vh; }
+        
+        /* Sidebar Menu Layout */
+        .sidebar {
+            width: 260px;
+            background: #0b132b;
+            color: white;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar .brand { font-size: 1.4rem; font-weight: 800; color: #06d6a0; display: flex; align-items: center; gap: 8px; }
+        .sidebar .brand span { color: white; }
+        .menu-links { list-style: none; margin-top: 3rem; display: flex; flex-direction: column; gap: 1rem; }
+        .menu-links li a { color: #94a3b8; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 12px; padding: 0.8rem 1rem; border-radius: 10px; transition: all 0.2s; }
+        .menu-links li.active a, .menu-links li a:hover { background: rgba(255,255,255,0.06); color: white; }
+        .logout { color: #f87171; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 10px; padding: 1rem; }
+
+        /* Dashboard Core View Area */
+        .main-content { flex: 1; padding: 2.5rem; }
+        .dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; }
+        .user-profile { display: flex; align-items: center; gap: 12px; }
+        .user-profile .avatar { width: 45px; height: 45px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; }
+        
+        /* Interactive Metrics Cards grid */
+        .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+        .metric-card { background: var(--card-dash); padding: 1.5rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; align-items: center; gap: 15px; border: 1px solid rgba(0,0,0,0.02); }
+        .metric-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+        .metric-icon.blue { background: rgba(0, 119, 182, 0.08); color: var(--primary); }
+        .metric-icon.green { background: rgba(6, 214, 160, 0.08); color: #06d6a0; }
+        .metric-icon.red { background: #fee2e2; color: #ef4444; }
+
+        /* Schedule Appointment Records Panel */
+        .panel-container { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
+        .data-panel { background: var(--card-dash); padding: 2rem; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .data-panel h3 { margin-bottom: 1.5rem; font-weight: 800; font-size: 1.2rem; }
+        
+        .appointment-list { display: flex; flex-direction: column; gap: 1rem; }
+        .appointment-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-radius: 12px; background: #f8fafc; border: 1px solid rgba(0,0,0,0.02); }
+        .doc-meta { display: flex; align-items: center; gap: 12px; }
+        .doc-meta .doc-img-stub { width: 40px; height: 40px; border-radius: 50%; background: #ddd; object-fit: cover; }
+        .status-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; background: #d1fae5; color: #065f46; }
+        
+        .health-tips { background: linear-gradient(135deg, var(--primary), #00b4d8); color: white; padding: 1.5rem; border-radius: 16px; }
+        .health-tips h4 { font-weight: 700; margin-bottom: 8px; }
+        .health-tips p { font-size: 0.9rem; opacity: 0.9; line-height: 1.4; }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div>
+            <div class="brand"><i class="fa-solid fa-notes-medical"></i> <span>CureLink</span></div>
+            <ul class="menu-links">
+                <li class="active"><a href="#"><i class="fa-solid fa-chart-pie"></i> Overview</a></li>
+                <li><a href="#"><i class="fa-regular fa-calendar-check"></i> Appointments</a></li>
+                <li><a href="#"><i class="fa-solid fa-prescription-bottle-medical"></i> Prescriptions</a></li>
+                <li><a href="#"><i class="fa-solid fa-flask"></i> Lab Reports</a></li>
+                <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+            </ul>
+        </div>
+        <a href="index.html" class="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+    </aside>
+
+    <main class="main-content">
+        <header class="dash-header">
+            <div>
+                <h2>Welcome Back, Arif Khan!</h2>
+                <p style="color: var(--muted); font-size: 0.95rem; margin-top: 4px;">Here is your live health summary update.</p>
+            </div>
+            <div class="user-profile">
+                <div class="avatar">A</div>
+                <div style="text-align: right;">
+                    <h4 style="font-size: 0.95rem;">Arif Khan</h4>
+                    <span style="font-size: 0.8rem; color: var(--muted);">Patient ID: #8892</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-icon blue"><i class="fa-solid fa-heart-pulse"></i></div>
+                <div>
+                    <p style="color: var(--muted); font-size: 0.85rem; font-weight: 600;">Avg Heart Rate</p>
+                    <h3 style="font-size: 1.4rem; font-weight: 800; margin-top: 2px;">72 <span style="font-size: 0.9rem; font-weight: 500;">BPM</span></h3>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon green"><i class="fa-solid fa-calendar-check"></i></div>
+                <div>
+                    <p style="color: var(--muted); font-size: 0.85rem; font-weight: 600;">Next Appointment</p>
+                    <h3 style="font-size: 1.2rem; font-weight: 800; margin-top: 2px;">Tomorrow</h3>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon red"><i class="fa-solid fa-droplet"></i></div>
+                <div>
+                    <p style="color: var(--muted); font-size: 0.85rem; font-weight: 600;">Blood Group</p>
+                    <h3 style="font-size: 1.4rem; font-weight: 800; margin-top: 2px;">O +ve</h3>
+                </div>
+            </div>
+        </section>
+
+        <div class="panel-container">
+            <div class="data-panel">
+                <h3>Upcoming Appointments</h3>
+                <div class="appointment-list">
+                    <div class="appointment-item">
+                        <div class="doc-meta">
+                            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=100" class="doc-img-stub" alt="doc">
+                            <div>
+                                <h4 style="font-size: 0.95rem;">Dr. Rahul Sharma</h4>
+                                <p style="font-size: 0.8rem; color: var(--muted);">Cardiologist • Video Consultation</p>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-size: 0.9rem; font-weight: 700;">10:30 AM</p>
+                            <span class="status-badge">Confirmed</span>
+                        </div>
+                    </div>
+
+                    <div class="appointment-item">
+                        <div class="doc-meta">
+                            <img src="https://images.unsplash.com/photo-1594824813573-246434de83fb?q=80&w=100" class="doc-img-stub" alt="doc">
+                            <div>
+                                <h4 style="font-size: 0.95rem;">Dr. Priya Sen</h4>
+                                <p style="font-size: 0.8rem; color: var(--muted);">Dermatologist • In-Clinic Visit</p>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-size: 0.9rem; font-weight: 700;">22 June, 4 PM</p>
+                            <span class="status-badge" style="background:#e0f2fe; color:#0369a1;">Pending</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="health-tips">
+                    <h4><i class="fa-solid fa-lightbulb"></i> Daily Health Tip</h4>
+                    <p>Drink at least 3.5 liters of filtered water daily to flush toxins out and keep skin cells fully hydrated.</p>
+                </div>
+                <div class="data-panel" style="padding: 1.5rem;">
+                    <h4 style="margin-bottom: 10px; font-weight: 700;">Recent Reports</h4>
+                    <p style="font-size: 0.85rem; color: var(--muted);"><i class="fa-regular fa-file-pdf"></i> Blood_Report_May.pdf</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Support - CureLink</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --accent: #10b981;
+            --bg-color: #f8fafc;
+            --surface-color: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: rgba(0, 0, 0, 0.06);
+            --radius: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); }
+
+        .navbar { background: var(--surface-color); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.3rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .back-btn { text-decoration: none; color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+        .back-btn:hover { color: var(--primary); }
+
+        .container { max-width: 1000px; margin: 4rem auto; padding: 0 2rem; display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 3rem; }
+
+        /* Left Column: Contact Cards */
+        .info-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+        .info-card { background: var(--surface-color); padding: 1.8rem; border-radius: var(--radius); border: 1px solid var(--border); display: flex; gap: 15px; align-items: flex-start; }
+        .info-card i { background: rgba(2, 132, 199, 0.08); color: var(--primary); padding: 12px; border-radius: 12px; font-size: 1.2rem; }
+        .info-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+        .info-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+
+        /* Right Column: Contact Form */
+        .contact-form-wrapper { background: var(--surface-color); padding: 2.5rem; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.01); }
+        .contact-form-wrapper h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .contact-form-wrapper p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; }
+
+        .form-group { margin-bottom: 1.2rem; display: flex; flex-direction: column; gap: 6px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-group label { font-size: 0.88rem; font-weight: 700; }
+        .form-group input, .form-group textarea { padding: 0.85rem 1rem; border-radius: 12px; border: 1px solid var(--border); background: #f8fafc; font-size: 0.95rem; outline: none; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.06); }
+
+        .send-btn { padding: 1rem; border: none; border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--primary-hover)); color: white; font-size: 1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.2); }
+        .send-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(2, 132, 199, 0.3); }
+
+        @media (max-width: 768px) { .container { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; gap: 0; } }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-notes-medical"></i> CureLink</a>
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="info-sidebar">
+            <div class="info-card">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                    <h4>Emergency Call</h4>
+                    <p>+91 12345 67890<br>24/7 Available helpline</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                    <h4>Email Support</h4>
+                    <p>support@curelink.com<br>Response within 2 hours</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <h4>Main HQ Clinic</h4>
+                    <p>Sector V, Salt Lake,<br>Kolkata, West Bengal</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+            <h2>Send us a message</h2>
+            <p>Have questions about premium booking? Drop your query here.</p>
+            
+            <form id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@example.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" placeholder="Appointment issue, general query..." required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="Type your detailed support request here..." required></textarea>
+                </div>
+                <button type="submit" class="send-btn"><i class="fa-regular fa-paper-plane"></i> Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert("📩 Thank you! Your support ticket has been registered. Our health executive will mail you shortly.");
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Rahul Sharma - CureLink Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --accent: #10b981;
+            --bg-color: #f8fafc;
+            --surface-color: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: rgba(0, 0, 0, 0.06);
+            --radius: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); }
+
+        /* Navigation Minimal */
+        .navbar { background: var(--surface-color); border-bottom: 1px solid var(--border); padding: 1rem 2rem; sticky: top; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.3rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .back-btn { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 6px; }
+        .back-btn:hover { color: var(--primary); }
+
+        /* Core Layout Grid */
+        .container { max-width: 1100px; margin: 3rem auto; padding: 0 2rem; display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 2rem; }
+
+        /* Left Column: Doctor Profile Bio */
+        .profile-card { background: var(--surface-color); padding: 2.5rem; border-radius: var(--radius); border: 1px solid var(--border); display: flex; gap: 2rem; align-items: flex-start; }
+        .doc-image { width: 160px; height: 160px; border-radius: var(--radius); object-fit: cover; }
+        .doc-info h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.4rem; }
+        .specialty { color: var(--primary); font-weight: 700; font-size: 1.05rem; margin-bottom: 0.8rem; }
+        .rating { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 0.95rem; margin-bottom: 1rem; color: #f59e0b; }
+        .rating span { color: var(--text-muted); font-weight: 500; }
+        .bio-text { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+
+        .details-tabs { background: var(--surface-color); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border); margin-top: 2rem; }
+        .details-tabs h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 1rem; }
+        .info-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .info-list li { display: flex; gap: 10px; font-size: 0.95rem; color: var(--text-muted); }
+        .info-list li i { color: var(--primary); margin-top: 4px; }
+
+        /* Right Column: Interactive Booking Widget */
+        .booking-widget { background: var(--surface-color); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border); position: sticky; top: 100px; box-shadow: 0 10px 25px rgba(0,0,0,0.02); }
+        .widget-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .fee { color: var(--accent); font-weight: 800; }
+
+        /* Date Picker Grid */
+        .section-label { font-size: 0.88rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; margin-bottom: 10px; }
+        .date-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.5rem; }
+        .date-item { border: 1px solid var(--border); padding: 10px; border-radius: 12px; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .date-item p { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+        .date-item h4 { font-size: 1rem; font-weight: 800; }
+        .date-item.active, .date-item:hover { border-color: var(--primary); background: rgba(2, 132, 199, 0.04); color: var(--primary); }
+        .date-item.active p { color: var(--primary); }
+
+        /* Time Slots Grid */
+        .slots-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 2rem; }
+        .slot-btn { padding: 12px; border: 1px solid var(--border); background: var(--bg-color); border-radius: 12px; font-size: 0.9rem; font-weight: 600; cursor: pointer; text-align: center; transition: all 0.2s; }
+        .slot-btn:hover, .slot-btn.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); }
+
+        .confirm-btn { width: 100%; padding: 1rem; border: none; border-radius: 12px; background: linear-gradient(135deg, var(--accent), #059669); color: white; font-size: 1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2); }
+        .confirm-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3); }
+
+        /* Responsive Setup */
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; }
+            .booking-widget { position: static; }
+            .profile-card { flex-direction: column; text-align: center; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-notes-medical"></i> CureLink</a>
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Search</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div>
+            <section class="profile-card">
+                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=300" class="doc-image" alt="Dr. Rahul Sharma">
+                <div class="doc-info">
+                    <h1>Dr. Rahul Sharma</h1>
+                    <p class="specialty">Senior Cardiologist</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i> 4.9 <span>(120+ Verified Reviews)</span>
+                    </div>
+                    <p class="bio-text">
+                        Dr. Rahul Sharma is a world-renowned Cardiologist with over 14 years of rich clinical experience in premium cardiac healthcare operations. He specializes in interventional cardiology and preventive cardiovascular care management systems.
+                    </p>
+                </div>
+            </section>
+
+            <section class="details-tabs">
+                <h3>Qualifications & Experience</h3>
+                <ul class="info-list">
+                    <li><i class="fa-solid fa-graduation-cap"></i> <div><strong>MD - Cardiology</strong>, AIIMS New Delhi (2012)</div></li>
+                    <li><i class="fa-solid fa-briefcase"></i> <div><strong>14+ Years Experience</strong> working as a core consultant in top global medical infrastructure.</div></li>
+                    <li><i class="fa-solid fa-language"></i> <div><strong>Languages Spoken:</strong> English, Hindi, Bengali</div></li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="booking-widget">
+            <div class="widget-title">
+                <h3>Book Appointment</h3>
+                <span class="fee">₹800</span>
+            </div>
+
+            <div class="section-label">Select Date</div>
+            <div class="date-grid">
+                <div class="date-item active" onclick="selectDate(this)">
+                    <p>Mon</p>
+                    <h4>22 Jun</h4>
+                </div>
+                <div class="date-item" onclick="selectDate(this)">
+                    <p>Tue</p>
+                    <h4>23 Jun</h4>
+                </div>
+                <div class="date-item" onclick="selectDate(this)">
+                    <p>Wed</p>
+                    <h4>24 Jun</h4>
+                </div>
+            </div>
+
+            <div class="section-label">Available Slots</div>
+            <div class="slots-grid">
+                <div class="slot-btn" onclick="selectSlot(this)"><i class="fa-regular fa-clock"></i> 10:30 AM</div>
+                <div class="slot-btn" onclick="selectSlot(this)"><i class="fa-regular fa-clock"></i> 11:40 AM</div>
+                <div class="slot-btn" onclick="selectSlot(this)"><i class="fa-regular fa-clock"></i> 04:15 PM</div>
+                <div class="slot-btn" onclick="selectSlot(this)"><i class="fa-regular fa-clock"></i> 06:30 PM</div>
+            </div>
+
+            <button class="confirm-btn" onclick="triggerBookingAlert()">Confirm & Pay</button>
+        </aside>
+    </main>
+
+    <script>
+        function selectDate(element) {
+            document.querySelectorAll('.date-item').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function selectSlot(element) {
+            document.querySelectorAll('.slot-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function triggerBookingAlert() {
+            const activeSlot = document.querySelector('.slot-btn.active');
+            if(!activeSlot) {
+                alert("Please pick an available time slot first!");
+                return;
+            }
+            alert("🎉 Slot Booked Successfully! Redirecting to your medical system dashboard...");
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+</html>

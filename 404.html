@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - CureLink 404</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: #f8fafc; height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+        
+        .error-container { max-width: 500px; background: #ffffff; padding: 3rem; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.05); }
+        
+        .heartbeat-icon { font-size: 4.5rem; color: #ef4444; margin-bottom: 1.5rem; animation: pulse 1.5s infinite; }
+        
+        h1 { font-size: 5rem; font-weight: 800; color: #0f172a; line-height: 1; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.4rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem; }
+        p { color: #64748b; font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem; }
+        
+        .home-btn { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 0.9rem 2rem; background: linear-gradient(135deg, #0284c7, #0369a1); color: white; font-weight: 700; border-radius: 12px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.2); transition: all 0.2s; }
+        .home-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(2, 132, 199, 0.3); }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            60% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <div class="heartbeat-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <h1>404</h1>
+        <h2>Heartbeat Check: Link Broken!</h2>
+        <p>The medical report or URL page you are looking for has been moved, removed, or never existed in our clinic server map.</p>
+        <a href="index.html" class="home-btn"><i class="fa-solid fa-house-medical"></i> Return To Home</a>
+    </div>
+
+</body>
+</html>
